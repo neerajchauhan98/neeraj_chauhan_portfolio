@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -6,6 +7,7 @@ import { Award } from 'lucide-react';
 
 export function Certificates() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
+  const [selectedCert, setSelectedCert] = useState<string | null>(null);
 
   const certificates = [
     {
@@ -13,24 +15,28 @@ export function Certificates() {
       issuer: 'NPTEL',
       date: '2025',
       credentialId: 'NPTEL-2025',
+      file: '/certificates/cloud.jpg'
     },
     {
-      title: 'Data Structures and Algorithms',
-      issuer: 'IAmNeo',
-      date: '2024',
-      credentialId: 'IAMNEO-2024',
+      title: 'ChatGPT-4 Prompt Engineering',
+      issuer: 'Infosys Springboard',
+      date: '2025',
+      credentialId: 'Infosys Springboard-2025',
+      file: '/certificates/prompt.jpg'
     },
     {
-      title: 'Fundamentals of Network Communication',
+      title: 'Computer Communication',
       issuer: 'Coursera',
       date: '2024',
       credentialId: 'COURSERA-2024',
+      file: '/certificates/communication.jpg'
     },
     {
       title: 'Build Generative AI Apps',
       issuer: 'Infosys Springboard',
       date: '2025',
       credentialId: 'INFOSYS-2025',
+      file: '/certificates/Ai_app.jpg'
     },
   ];
 
@@ -103,9 +109,17 @@ export function Certificates() {
                       {cert.title}
                     </h4>
                     <p className="text-gray-400 text-sm mt-1">{cert.issuer}</p>
-                    <div className="flex justify-between items-end mt-4">
-                      <span className="text-xs text-gray-500">{cert.date}</span>
-                    </div>
+                    <div className="flex justify-between items-center mt-4">
+  <span className="text-xs text-gray-500">{cert.date}</span>
+
+  {/* 🔥 VIEW BUTTON */}
+  <button
+    onClick={() => setSelectedCert(cert.file)}
+    className="px-3 py-1 text-xs bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 rounded-md hover:bg-cyan-500/20 transition"
+  >
+    View Certificate→
+  </button>
+</div>
                   </div>
                 </div>
               </motion.div>
@@ -144,6 +158,25 @@ export function Certificates() {
           </div>
         </motion.div>
       </motion.div>
+      {selectedCert && (
+  <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+    
+    {/* Close Button */}
+    <button
+      onClick={() => setSelectedCert(null)}
+      className="absolute top-6 right-6 text-white text-3xl"
+    >
+      ✕
+    </button>
+
+    {/* Certificate */}
+    <img
+      src={selectedCert}
+      alt="Certificate"
+      className="max-w-[90%] max-h-[90%] rounded-lg shadow-lg"
+    />
+  </div>
+)}
     </section>
   );
 }

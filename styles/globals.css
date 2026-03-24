@@ -123,3 +123,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+.glass:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+}
+
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(50px, 50px); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-50px, -30px); }
+}

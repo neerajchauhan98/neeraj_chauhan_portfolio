@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
+
+
 @custom-variant dark (&:is(.dark *));
 
 :root {
@@ -184,3 +186,4 @@
   color: #00ff88;
   text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88;
 }
+

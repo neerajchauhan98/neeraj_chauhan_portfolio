@@ -7,22 +7,44 @@ export function Skills() {
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: true });
 
   const skillCategories = [
-    {
-      category: 'Programming',
-      color: 'cyan',
-      skills: ['Python', 'C++', 'SQL', 'JavaScript'],
-    },
-    {
-      category: 'AI & Data',
-      color: 'purple',
-      skills: ['Machine Learning', 'Data Analysis', 'Scikit-learn', 'Pandas', 'NumPy'],
-    },
-    {
-      category: 'Tools',
-      color: 'green',
-      skills: ['Power BI', 'Excel', 'Git & GitHub', 'VS Code'],
-    },
-  ];
+  {
+    category: 'Programming',
+    color: 'cyan',
+    skills: [
+      { name: 'Python', level: 90 },
+      { name: 'C++', level: 80 },
+      { name: 'SQL', level: 85 },
+      { name: 'JavaScript', level: 75 },
+    ],
+  },
+  {
+    category: 'AI & Data',
+    color: 'purple',
+    skills: [
+      { name: 'Machine Learning', level: 85 },
+      { name: 'Data Analysis', level: 90 },
+      { name: 'Scikit-learn', level: 80 },
+      { name: 'Pandas', level: 88 },
+      { name: 'NumPy', level: 85 },
+    ],
+  },
+  {
+    category: 'Tools',
+    color: 'green',
+    skills: [
+      { name: 'Power BI', level: 85 },
+      { name: 'Excel', level: 90 },
+      { name: 'Git & GitHub', level: 80 },
+      { name: 'VS Code', level: 95 },
+    ],
+  },
+];
+const colorMap = {
+  cyan: 'bg-cyan-500',
+  purple: 'bg-purple-500',
+  green: 'bg-green-500',
+};
+
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -68,7 +90,7 @@ export function Skills() {
             <motion.div
               key={category.category}
               variants={itemVariants}
-              className="glass p-8 rounded-lg border border-cyan-500/20 hover:border-cyan-500/50 transition-all duration-300"
+              className="glass p-8 rounded-xl border border-white/10 hover:border-cyan-500/40 hover:scale-[1.03] transition-all duration-300"
             >
               <h3 className={`text-2xl font-bold mb-6 neon-${category.color}`}>
                 {category.category}
@@ -80,24 +102,35 @@ export function Skills() {
                 className="space-y-3"
               >
                 {category.skills.map((skill, skillIndex) => (
-                  <motion.div
-                    key={skill}
-                    variants={{
-                      hidden: { opacity: 0, x: -20 },
-                      visible: {
-                        opacity: 1,
-                        x: 0,
-                        transition: { delay: skillIndex * 0.05 },
-                      },
-                    }}
-                    className="flex items-center gap-3 group"
-                  >
-                    <div className={`w-2 h-2 rounded-full bg-${category.color}-500 group-hover:w-3 group-hover:h-3 transition-all`} />
-                    <span className="text-gray-300 group-hover:text-white transition-colors">
-                      {skill}
-                    </span>
-                  </motion.div>
-                ))}
+  <motion.div
+    key={skill.name}
+    variants={{
+      hidden: { opacity: 0, x: -20 },
+      visible: {
+        opacity: 1,
+        x: 0,
+        transition: { delay: skillIndex * 0.1 },
+      },
+    }}
+    className="space-y-2"
+  >
+    {/* 🔹 Skill Name + % */}
+    <div className="flex justify-between text-sm text-gray-300">
+      <span>{skill.name}</span>
+      <span>{skill.level}%</span>
+    </div>
+
+    {/* 🔥 Progress Bar */}
+    <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+      <motion.div
+        initial={{ width: 0 }}
+        animate={inView ? { width: `${skill.level}%` } : { width: 0 }}
+        transition={{ duration: 1, delay: skillIndex * 0.1 }}
+        className={`h-full bg-${category.color}-500 rounded-full`}
+      />
+    </div>
+  </motion.div>
+))}
               </motion.div>
             </motion.div>
           ))}
