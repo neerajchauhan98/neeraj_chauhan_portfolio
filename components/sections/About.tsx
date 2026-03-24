@@ -45,12 +45,22 @@ export function About() {
             variants={itemVariants}
             className="space-y-4 text-gray-300 leading-relaxed text-lg"
           >
-            <p>
-              I'm a B.Tech Computer Science student passionate about Data Science, Artificial Intelligence, and Machine Learning. I focus on building intelligent systems, data-driven applications, and innovative solutions that solve real-world problems.
-            </p>
-            <p>
-              With an entrepreneurial mindset, I'm passionate about building AI assistants, creating data dashboards, and experimenting with innovative tech products that can make a real impact in the world.
-            </p>
+              <p>
+    I'm a B.Tech Computer Science student with a strong interest in Data Science, Artificial Intelligence, and Machine Learning.
+  </p>
+
+  <p>
+    I enjoy building data-driven applications, working with real-world datasets, and continuously improving my problem-solving skills through hands-on projects.
+  </p>
+
+  <p>
+    As a data science aspirant, I'm focused on learning core concepts, applying them practically, and growing into a skilled AI engineer.
+  </p>
+
+  <p>
+    Alongside this, I have a growing interest in entrepreneurship and aspire to build innovative tech products that solve real-world problems.
+  </p>
+
           </motion.div>
 
           <motion.div
@@ -59,6 +69,14 @@ export function About() {
           >
             <h3 className="text-2xl font-bold text-cyan-400">Highlights</h3>
             <div className="space-y-3 text-gray-300">
+              <div className="flex items-start gap-3 pb-2">
+                <span className="text-cyan-400 font-bold">•</span>
+                <span>Data Science focused</span>
+              </div>
+              <div className="flex items-start gap-3 pb-2">
+                <span className="text-cyan-400 font-bold">•</span>
+                <span>AI & Machine Learning</span>
+              </div>
               <div className="flex items-start gap-3 pb-2">
                 <span className="text-cyan-400 font-bold">•</span>
                 <span>Entrepreneurial mindset</span>

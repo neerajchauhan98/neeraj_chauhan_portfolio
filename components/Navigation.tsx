@@ -28,7 +28,7 @@ export function Navigation() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2 }}
-          className="text-2xl font-bold neon-cyan"
+          className="text-3xl font-bold neon-cyan"
         >
           Neeraj Chauhan
         </motion.div>
@@ -41,7 +41,7 @@ export function Navigation() {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 * i }}
-              className="text-sm text-gray-300 hover:text-cyan-400 transition-colors relative group"
+              className="text-lg text-gray-300 hover:text-cyan-400 transition-colors relative group"
             >
               {link.label}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-cyan-400 group-hover:w-full transition-all duration-300" />

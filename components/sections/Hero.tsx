@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Download, FileText } from "lucide-react";
 
 export function Hero() {
   const containerVariants = {
@@ -40,7 +41,7 @@ export function Hero() {
             transition={{ duration: 0.5 }}
             className="inline-block"
           >
-            <span className="text-sm font-mono text-cyan-200">Hi, my name is</span>
+            <span className="text-lg font-mono text-cyan-200">Hi, my name is</span>
           </motion.div>
 
           <motion.h1
@@ -63,32 +64,41 @@ export function Hero() {
             variants={itemVariants}
             className="text-xl text-gray-400 max-w-lg leading-relaxed"
           >
-            Building intelligent systems, AI-driven applications, and innovative educational technology.
+            Passionate about transforming data into insights and building AI-driven systems that solve real-world challenges.
           </motion.p>
 
-          {/* CV Buttons */}
-  <motion.div
+    
+
+<motion.div
   variants={itemVariants}
   className="flex gap-4 flex-wrap pt-4"
 >
+
+  {/* 🔍 VIEW CV */}
   <motion.a
-    href="/cv/specialized_cv.pdf"
+    href="/neeraj-chauhan-cv.pdf"
     target="_blank"
+    rel="noopener noreferrer"
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
-    className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-black font-semibold rounded-lg transition-all duration-300 glow-pulse"
+    className="flex items-center gap-2 px-8 py-3 border border-cyan-400 text-cyan-400 rounded-lg hover:bg-cyan-400 hover:text-black transition-all duration-300"
   >
-    Specialized CV
+    <FileText size={18} />
+    CV/Resume
   </motion.a>
+
+  {/* ⬇️ DOWNLOAD CV */}
   <motion.a
-    href="/cv/general_cv.pdf"
-    target="_blank"
+    href="/neeraj-chauhan-cv.pdf"
+    download
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
-    className="px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-black font-semibold rounded-lg transition-all duration-300 glow-pulse"
+    className="flex items-center gap-2 px-8 py-3 bg-cyan-500 hover:bg-cyan-600 text-black font-semibold rounded-lg transition-all duration-300 glow-pulse"
   >
-    General CV
+    <Download size={18} />
+    Download CV
   </motion.a>
+
 </motion.div>
           <motion.div
             variants={itemVariants}
